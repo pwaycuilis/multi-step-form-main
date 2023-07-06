@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+
+
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+
+
+
+  <main class="grid-container">
+    <div class="sidebar flex-container">
+
+      <div class="sidebar__item">
+        <button class="step-number" id="step-button-1" data-selected="true">1</button>
+
+        <div class="sidebar__item-text">
+          <div class="title">Step 1</div>
+          <div class="info">Your info</div>
+        </div>
+        
+      </div>
+
+      <div class="sidebar__item">
+        <button class="step-number" id="step-button-2" data-selected="false">2</button>
+        <div class="sidebar__item-text">
+          <div class="title">Step 2</div>
+          <div class="info">Select plan</div>
+        </div>
+        
+      </div>
+
+      <div class="sidebar__item">
+        <button class="step-number" id="step-button-3" data-selected="false">3</button>
+        <div class="sidebar__item-text">
+          <div class="title">Step 3</div>
+          <div class="info">Add-ons</div>
+        </div>
+        
+      </div>
+
+      <div class="sidebar__item">
+        <button class="step-number" id="step-button-4" data-selected="false" >4</button>
+        <div class="sidebar__item-text">
+          <div class="title">Step 4</div>
+          <div class="info">Summary</div>
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div class="display-container" data-current-page="1">
+      <div class="step-container step-display-1" data-visible="true">
+        <div class="step-title">Personal info</div>
+        <div class="step-info">Please provide your name, email address, and phone number.</div>
+
+        <div class="entries-container">
+          <div class="name-container entry-container__step-1">
+
+            <div class="entry-label__container flex-container">
+              <div class="entry-label entry-label__step-1">Name</div>
+              <div class="entry-warning" id="invalid-name" data-visible="false">This field is required</div>
+            </div> 
+            <input type="text" class="entry-input active" id="input-name" placeholder="e.g. Stephen King">
+          </div>
+
+          <div class="email-container entry-container__step-1">
+            <div class="entry-label__container flex-container">
+              <div class="entry-label entry-label__step-1">Email Address</div>
+              <div class="entry-warning" id="invalid-email" data-visible="false">Email address must be valid</div>
+            </div>
+            <input type="text" class="entry-input active" id="input-email" placeholder="e.g. stephenking@lorem.com">
+            
+          </div>
+
+          <div class="phone-container entry-container__step-1">
+            <div class="entry-label__container flex-container">
+              <div class="entry-label entry-label__step-1">Phone Number</div>
+              <div class="entry-warning" id="invalid-phone" data-visible="false">This field is required</div>
+            </div>
+            
+            <input type="text" class="entry-input active" id="input-phone" placeholder="e.g. +1 234 567 890" data-valid-input="true">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="step-container step-display-2" data-visible="false">
+        <div class="step-title">Select your plan</div>
+        
+        <div class="step-info">You have the option of monthly or yearly billing.</div>
+        <div class="validation-warning__step-2" data-visible="false">You must choose an option.</div>
+        <div class="entries-container entries-container__step-2" data-timeframe-selected="monthly">
+          <div class="selectable-container entry-container entry__grid-container--step-2 arcade-container active" data-selected="false">
+            <div class="entry-icon"></div>
+            <div class="entry-label">Arcade</div>
+            <div class="entry-cost monthly-cost" data-visible="true">$9/mo</div>
+            <div class="entry-cost yearly-cost" data-visible="false">
+              $90/yr
+              <div class="months-free">2 months free</div>
+            </div>
+          </div>
+
+          <div class="selectable-container entry-container entry__grid-container--step-2 advanced-container active" data-selected="false">
+            <div class="entry-icon"></div>
+            <div class="entry-label">Advanced</div>
+            <div class="entry-cost monthly-cost" data-visible="true">$12/mo</div>
+            <div class="entry-cost yearly-cost" data-visible="false">
+              $120/yr
+              <div class="months-free">2 months free</div>
+            </div>
+          </div>
+
+          <div class="selectable-container entry-container entry__grid-container--step-2 pro-container active" data-selected="false">
+            <div class="entry-icon"></div>
+            <div class="entry-label">Pro</div>
+            <div class="entry-cost monthly-cost" data-visible="true">$15/mo</div>
+            <div class="entry-cost yearly-cost" data-visible="false">
+              $150/yr
+              <div class="months-free">2 months free</div>
+            </div>
+          </div>
+
+          <div class="timeframe-container flex-container" data-timeframe-selected="monthly">
+            <div class="timeframe-monthly">Monthly</div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round" id="toggle-timeframe" data-slider-position="monthly"></span>
+            </label>
+            <div class="timeframe-yearly">Yearly</div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="step-container step-display-3" data-visible="false">
+        <div class="step-title">Pick add-ons</div>
+        <div class="step-info">Add-ons help enhance your gaming experience.</div>
+        
+        <div class="entries-container">
+          <div class="entry-container entry__grid-container--step-3 selectable-container" id="add-ons__online-service" data-selected="false">
+            <!-- <input type="radio" id="add-ons__online-service" class="active"> -->
+            <div class="add-ons__checkbox" ></div>
+            <div class="entry-label entry-label--step-3">Online service</div>
+            <div class="entry-info entry-info--step-3">Access to multiplayer games</div>
+            <div class="entry-cost entry-cost--step-3 monthly-cost" data-visible="true">+$1/mo</div>
+            <div class="entry-cost entry-cost--step-3 yearly-cost" data-visible="false">+$10/yr</div>
+          </div>
+
+          <div class="entry-container entry__grid-container--step-3 selectable-container" id="add-ons__larger-storage" data-selected="false">
+            <div class="add-ons__checkbox" ></div>
+            <div class="entry-label entry-label--step-3">Larger storage</div>
+            <div class="entry-info entry-info--step-3">Extra 1TB of cloud save</div>
+            <div class="entry-cost entry-cost--step-3 monthly-cost" data-visible="true">+$2/mo</div>
+            <div class="entry-cost entry-cost--step-3 yearly-cost" data-visible="false">+$20/yr</div>
+          </div>
+
+          <div class="entry-container entry__grid-container--step-3 selectable-container" id="add-ons__customizable-profile" data-selected="false">
+            <div class="add-ons__checkbox"></div>
+            <div class="entry-label entry-label--step-3">Customizable Profile</div>
+            <div class="entry-info entry-info--step-3">Custom theme on your profile</div>
+            <div class="entry-cost entry-cost--step-3 monthly-cost" data-visible="true">+$2/mo</div>
+            <div class="entry-cost entry-cost--step-3 yearly-cost" data-visible="false">+$20/yr</div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="step-container step-display-4" data-visible="false">
+        <div class="step-title">Finishing up</div>
+        <div class="step-info">Double-check everything looks OK before confirming.</div>
+
+      
+        <div class="entries-container">
+          <div class="addends-container">
+
+            
+            <div class="entry-container entry-container__step-4 flex-container">
+              <div class="">
+                <div class="entry-label" id="plan-selected__step-4"></div>
+                <div class="change-plan active">Change</div>
+              </div>
+              <div class="entry-cost plan-cost__step-4"></div>
+            </div>
+    
+
+            <div class="straight-line"></div>
+
+            <div class="entry-container entry-container__step-4 flex-container" id="addends__online-service" data-visible="false">
+              <div class="entry-label">Online service</div>
+              <div class="entry-cost monthly-cost" data-visible="true">+$1/mo</div>
+              <div class="entry-cost yearly-cost" data-visible="false">+$10/yr</div>
+            </div>
+
+            <div class="entry-container entry-container__step-4 flex-container" id="addends__larger-storage" data-visible="false">
+              <div class="entry-label">Larger Storage</div>
+              <div class="entry-cost monthly-cost" data-visible="true">+$2/mo</div>
+              <div class="entry-cost yearly-cost" data-visible="false">+$20/yr</div>
+            </div>
+
+            <div class="entry-container entry-container__step-4 flex-container" id="addends__customizable-profile" data-visible="false">
+              <div class="entry-label">Customizable Profile</div>
+              <div class="entry-cost monthly-cost" data-visible="true">+$2/mo</div>
+              <div class="entry-cost yearly-cost" data-visible="false">+$20/yr</div>
+            </div>
+
+        </div>
+          <div class="entry-container entry-container__step-4 total-cost__container flex-container">
+            <div class="entry-label total-cost__label">Total (per month/year)</div>
+            <div class="total-cost__cost"></div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="step-container step-display-5 flex-container" data-visible="false">
+        <div class="step-5__icon"></div>
+        <div class="step-title">Thank you!</div>
+        <div class="step-info">Thanks for confirming your subscription! We hope you have fun 
+          using our platform. If you ever need support, please feel free 
+          to email us at support@loremgaming.com.</div>
+      </div>
+    </div>
+
+    <div class="bottom-buttons flex-container">
+      <button class="back-button active" id="back-button" data-visible="false">Go Back</button>
+      <button class="next-button active" id="next-button" data-visible="true">Next Step</button>
+    </div>
+    
+
+  </main>
+  
+
+
+
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
