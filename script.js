@@ -119,7 +119,7 @@ const loadStepFourData = () => {
         planCostStr = "$" + planCost +"/yr";
         document.querySelector('.total-cost__label').textContent = "Total (per year)";
 
-        totalCostStr = "+$" + totalCost + "/mo";
+        totalCostStr = "+$" + totalCost + "/yr";
         
     }
 

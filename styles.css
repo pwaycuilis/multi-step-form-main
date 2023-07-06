@@ -115,6 +115,8 @@ main {
 
 
     height: 100%;
+    width: 100%;
+    /* max-width: 30rem; */
     grid-template-rows: 11rem auto 4rem;
 
 
@@ -139,7 +141,8 @@ main {
     grid-area: sidebar;
     background-image: url(./assets/images/bg-sidebar-mobile.svg);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    /* background-size: 100% auto; */
+    background-size: cover;
 
     justify-content: space-evenly;
     padding: 1.5rem 5rem 1rem 5rem;
@@ -170,6 +173,7 @@ button.step-number[data-selected="true"] {
 
 .display-container {
     grid-area: display-container;
+    /* width: 100%; */
 }
 
 .step-container {
@@ -178,7 +182,7 @@ button.step-number[data-selected="true"] {
     margin: auto;
     margin-top: -5rem;
     border-radius: 5%;
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 2rem 1.5rem 2rem 1.5rem;
     background-color: var(--clr-neutral-100);
     
 }
@@ -192,6 +196,7 @@ button.step-number[data-selected="true"] {
     font-weight: var(--fw-700);
     font-size: 150%;
     margin-bottom: 0.5rem;
+    color: var(--clr-primary-800);
 }
 
 .step-info {
@@ -567,6 +572,7 @@ input:focus + .slider {
   width: 100%;
   height: 4rem;
   margin: auto;
+  /* margin-top: 1rem; */
   position: absolute;
   bottom: 0rem;
   justify-content: space-between;
